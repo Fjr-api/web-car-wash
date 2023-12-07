@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login Page</title>
+        <link rel="stylesheet" href="login_styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <img
+                src="./src/logo.png"
+                alt="Profile Image"
+                class="profile-image"
+            />
+            <p class="welcome-text">
+                SELAMAT DATANG DI CAR WASH <br />
+                SMKN 2 BANJARMASIN
+            </p>
+            <div class="card">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="input-container">
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Username"
+                            required
+                        />
+                    </div>
+
+                    <div class="input-container">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Password"
+                            required
+                        />
+                    </div>
+
+                    <div class="button-container">
+                        <button type="button" onclick="validateLogin()">
+                            Login
+                        </button>
+                        <a href="tes.html" class="button">Register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="./login_process.js"></script>
+    </body>
+</html>

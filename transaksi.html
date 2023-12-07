@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaksi Laundry</title>
+    <link rel="stylesheet" href="transaksi_styles.css" />
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function hidePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function redirectToHome() {
+            window.location.href = "home.html";
+        }
+
+        function simpanTransaksi() {
+                // Lakukan logika simpan transaksi di sini
+                // ...
+
+                // Tampilkan pop-up setelah simpan transaksi berhasil
+            showPopup();
+        }
+    </script>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p>Transaksi berhasil! Kembali ke halaman utama.</p>
+            <button onclick="redirectToHome()">OK</button>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="transaksi.html" class="nav-link">Transaksi</a>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html" class="logout-button">Logout</a>
+        </div>
+    </nav>
+
+    <div class="transaksi-container">
+        <div class="transaksi-card">
+            <div class="transaksi-form-container">
+                <form action="#" method="post" class="transaksi-form">
+                    <div class="form-row">
+                        <label for="no_transaksi" class="form-label"
+                        >No Transaksi:</label
+                        >
+                        <input
+                        type="text"
+                        id="no_transaksi"
+                        name="no_transaksi"
+                        class="form-input"
+                        required
+                        />
+                    </div>
+                    <div class="form-row">
+                        <label for="tanggal_transaksi" class="form-label"
+                        >Tanggal Transaksi:</label
+                        >
+                        <input
+                        type="date"
+                        id="tanggal_transaksi"
+                        name="tanggal_transaksi"
+                        class="form-input"
+                        required
+                        />
+                    </div>
+                    <div class="form-row">
+                        <label for="nama_customer" class="form-label"
+                        >Nama Customer:</label
+                        >
+                        <input
+                        type="text"
+                        id="nama_customer"
+                        name="nama_customer"
+                        class="form-input"
+                        required
+                        />
+                    </div>
+                    <div class="form-row">
+                        <label for="pilihan_paket" class="form-label"
+                        >Pilihan Paket:</label
+                        >
+                        <input
+                        type="text"
+                        id="pilihan_paket"
+                        name="pilihan_paket"
+                        class="form-input"
+                        readonly
+                        required
+                        />
+                    </div>
+                    <div class="form-row">
+                        <label for="harga_paket" class="form-label"
+                        >Harga Paket:</label
+                        >
+                        <input
+                        type="text"
+                        id="harga_paket"
+                        name="harga_paket"
+                        class="form-input"
+                        readonly
+                        required
+                        />
+                    </div>
+                </form>
+            </div>
+            <div class="checkbox-container">
+                <div class="checkbox-row">
+                    <input
+                    type="checkbox"
+                    id="tanpa_tambahan"
+                    name="tanpa_tambahan"
+                    value="0"
+                    />
+                    <label for="tanpa_tambahan"
+                    >Tidak ada tambahan - Rp.0</label
+                    >
+                </div>
+                <div class="checkbox-row">
+                    <input
+                    type="checkbox"
+                    id="tambahan_pelembut"
+                    name="tambahan_pelembut"
+                    value="10000"
+                    />
+                    <label for="tambahan_pelembut"
+                    >Tambahan wax - Rp.10.000</label
+                    >
+                </div>
+                <div class="checkbox-row">
+                    <input
+                    type="checkbox"
+                    id="tambahan_fogging"
+                    name="tambahan_fogging"
+                    value="10000"
+                    />
+                    <label for="tambahan_fogging"
+                    >Tambahan Fogging - Rp.20.000</label
+                    >
+                </div>
+                <div class="form-row">
+                    <button
+                    type="button"
+                    onclick="hitungTotalHarga()"
+                    class="logout-button"
+                    >
+                    Hitung Total Harga
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="pembayaran-section">
+    <div class="total-harga-container">
+        <div class="form-container">
+            <form action="#" method="post" class="transaksi-form">
+                <div class="form-row">
+                    <label for="total_harga" class="form-label"
+                    >Total Harga:</label
+                    >
+                    <input
+                    type="text"
+                    id="total_harga"
+                    name="total_harga"
+                    class="form-input"
+                    readonly
+                    />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pembayaran-container">
+        <div class="form-container">
+            <form action="#" method="post" class="transaksi-form">
+                <div class="form-row">
+                    <label for="pembayaran" class="form-label"
+                    >Pembayaran:</label
+                    >
+                    <input
+                    type="text"
+                    id="pembayaran"
+                    name="pembayaran"
+                    class="form-input"
+                    required
+                    />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="kembalian-section">
+    <div class="kembalian-container">
+        <div class="form-container">
+            <form action="#" method="post" class="transaksi-form">
+                <div class="form-row">
+                    <label for="kembalian" class="form-label"
+                    >Kembalian:</label
+                    >
+                    <input
+                    type="text"
+                    id="kembalian"
+                    name="kembalian"
+                    class="form-input"
+                    readonly
+                    />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="button-container">
+        <button
+        type="button"
+        onclick="hitungKembalian()"
+        class="logout-button"
+        >
+        Hitung Kembalian
+    </button>
+    <button
+    type="button"
+    onclick="simpanTransaksi()"
+    class="logout-button"
+    >
+    Simpan Transaksi
+</button>
+</div>
+</section>
+
+<div class="footer">
+    <p>&copy; 2023 SMK Farmasi. All rights reserved.</p>
+</div>
+
+<script>
+            // Fungsi untuk mendapatkan nilai parameter dari URL
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+            // Mendapatkan nilai parameter paket dari URL
+    var paketData = getParameterByName("paket");
+
+            // Jika paketData tidak null, isi nilai ke dalam input
+    if (paketData) {
+        var parsedPaket = JSON.parse(paketData);
+        document.getElementById("pilihan_paket").value = parsedPaket[0];
+        document.getElementById("harga_paket").value = parsedPaket[2];
+    }
+
+    function hitungTotalHarga() {
+                // Mendapatkan nilai input
+        var hargaPaket = parseFloat(
+            document.getElementById("harga_paket").value,
+            );
+        var tambahanPelembut = document.getElementById(
+            "tambahan_pelembut",
+            ).checked
+        ? 10000
+        : 0;
+        var tambahanfogging = document.getElementById(
+            "tambahan_fogging",
+            ).checked
+        ? 20000
+        : 0;
+
+                // Melakukan perhitungan total harga
+        var totalHarga = hargaPaket + tambahanPelembut + tambahanfogging;
+
+                // Menampilkan hasil total harga
+        document.getElementById("total_harga").value = totalHarga;
+    }
+
+    function hitungKembalian() {
+                // Mendapatkan nilai input
+        var totalHarga = parseFloat(
+            document.getElementById("total_harga").value,
+            );
+        var pembayaran = parseFloat(
+            document.getElementById("pembayaran").value,
+            );
+
+                // Melakukan perhitungan kembalian
+        var kembalian = pembayaran - totalHarga;
+
+                // Menampilkan hasil kembalian
+        document.getElementById("kembalian").value = kembalian;
+    }
+</script>
+
+<script src="function.js"></script>
+</body>
+</html>
